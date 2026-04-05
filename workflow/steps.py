@@ -9,6 +9,7 @@ from gates.gate_step2 import GateStep2
 from gates.gate_step3 import GateStep3
 from gates.gate_step4 import GateStep4
 from gates.gate_step5 import GateStep5
+from gates.gate_step6 import GateStep6
 from gates.gate_step7 import GateStep7
 
 from tools.docker_tools import docker_build, docker_compose_up, docker_compose_down, docker_health_check
@@ -90,7 +91,7 @@ STEPS = {
         prompt_file="step6_rollback.md",
         rules_files=["error_handling_rules.md"],
         tools=[read_file, write_file, run_command, docker_compose_down],
-        gate=GateStep0,  # After rollback, re-run bootstrap gate to verify clean state
+        gate=GateStep6,  # Dedicated rollback gate checks report and restored files
     ),
     7: StepDef(
         name="Consolidate",

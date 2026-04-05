@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict
 
-import requests as _requests
+import requests
 
 from strands import tool
 
@@ -23,7 +23,7 @@ def smoke_test(url: str = "http://localhost:3000/", timeout: int = 10) -> Dict[s
     """
     default_pages = ["It works!", "Welcome to nginx", "Apache2 Default", "Default Web Page"]
     try:
-        resp = _requests.get(url, timeout=timeout)
+        resp = requests.get(url, timeout=timeout)
         is_default = any(d in resp.text for d in default_pages)
         passed = resp.status_code == 200 and not is_default
         return {

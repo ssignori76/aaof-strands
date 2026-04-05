@@ -133,11 +133,6 @@ class Orchestrator:
                     f"Step {step_num} ({step_def.name}) could not complete successfully."
                 )
 
-            # Skip Step 6 (Rollback) if we're not in a failure scenario
-            if step_num == 4:
-                # After Implement, go directly to Validate (skip Rollback path)
-                pass
-
         console.print(
             Panel.fit(
                 "[bold green]✅ Workflow complete![/bold green]\n"

@@ -136,8 +136,7 @@ class GateStep5(BaseGate):
 
         content = playbook.read_text(encoding="utf-8")
         refs = re.findall(
-            r"(?:output/|\./)"
-            r"([a-zA-Z0-9_\-./]+\.(?:sh|py|js|json|yml|yaml))",
+            r"(?:output/|\./)([a-zA-Z0-9_\-./]+\.(?:sh|py|js|json|yml|yaml))",
             content,
         )
         for ref in set(refs):
