@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.env
+session/session_state.json
+session/step_evidence.json
+session/requirements_checklist.json
+backups/
+.DS_Store
+.vscode/
+.idea/

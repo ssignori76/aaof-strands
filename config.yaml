@@ -1,0 +1,31 @@
+# AAOF v2.0 Strands — Project Configuration
+# This is the ONLY file you need to edit to configure your project.
+
+project:
+  name: "my-project"
+  description: "Describe your project here"
+
+stack:
+  languages: ["javascript"]
+  frameworks: ["express"]
+  databases: ["sqlite"]
+
+deploy_targets: ["DOCKER"]
+
+environment:
+  type: "lab"                    # lab | staging | production
+  tls_required: false
+  external_access: false
+  secrets_strictness: "relaxed"
+
+model:
+  provider: "openai"
+  model_id: "gpt-4o"
+  max_tokens: 4096
+  temperature: 0.2
+
+workflow:
+  max_retries: 3
+  human_approval_at: [2]
+  skip_k8s_if_no_minikube: true
+  verbose: true
